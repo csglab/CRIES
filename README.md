@@ -1,7 +1,7 @@
 # CRIES
 ## Counting Reads for Intronic and Exonic Segments
 
-This pipeline describes the process used by the CSG lab for counting RNA-seq reads that map to intronic and exonic segments, primarily for the purpose of measuring mRNA stability.
+This pipeline describes the process used by the [CSG lab](http://csg.lab.mcgill.ca/) for counting RNA-seq reads that map to intronic and exonic segments, primarily for the purpose of measuring mRNA stability.
 
 ## Requirements
 - Unix-compatible OS
