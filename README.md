@@ -55,8 +55,8 @@ Note that the sort command is designed for single-end sequencing data. For paire
 We use HTSeq-count for counting reads. For counting exonic reads, we run the HTSeq-count using the "intersection-strict" mode, to ensure that the reads that are counted entirely fit within the mature mRNA sequence, and do not overlap alternatively spliced exons. For intronic reads, we run the HTSeq-count using the "union" mode, since any read that even partially overlaps an intronic region likely originates from pre-mature RNA.
 
 ```bash
-htseq-count -m intersection-strict -f bam -s <strand> <sampleName>.srt.filtered.bam ./Homo_sapiens.GRCh38.87.chr.consExons.gtf > <sampleName>".consExons.counts.txt"
-htseq-count -m union -f bam -s <strand> <sampleName>.srt.filtered.bam ./Homo_sapiens.GRCh38.87.chr.Introns.gtf > <sampleName>".Introns.counts.txt"
+htseq-count -m intersection-strict -f bam -t exon -s <strand> <sampleName>.srt.filtered.bam ./Homo_sapiens.GRCh38.87.chr.consExons.gtf > <sampleName>".consExons.counts.txt"
+htseq-count -m union -f bam -t intron -s <strand> <sampleName>.srt.filtered.bam ./Homo_sapiens.GRCh38.87.chr.Introns.gtf > <sampleName>".Introns.counts.txt"
 ```
 
 The parameter `<strand>` depends on the strandedness of the library preparation kit. For Illumina TruSeq RNA Library Prep Kit, the correct parameter is often `reverse`. If not sure, try all the three different options `no`, `yes` and `reverse`, and decide accordingly.
