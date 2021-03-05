@@ -109,7 +109,7 @@ out$gene_id <- paste(out$gene_id, out$gene_name, sep = '_')
 seqlevelsStyle(out) <- args[2]
 
 fpath <- head(strsplit(args[1], '/')[[1]], -1) %>% paste(., collapse = '/')
-fname <- paste0(tail(strsplit(args[1], '/')[[1]], 1), '_', Sys.Date(), '_consExonsAndIntrons_', args[2], '.gtf')
+fname <- paste0(tail(strsplit(args[1], '/')[[1]], 1), '_', Sys.Date(), '_constExonsAndIntrons_', args[2], '.gtf')
 
 export(
     object = out[ , -2], # omit gene name
