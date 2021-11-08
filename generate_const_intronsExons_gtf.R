@@ -6,7 +6,7 @@ library(magrittr)
 
 ### User arguments ####
 args <- commandArgs(trailingOnly = TRUE)
-# args <- c('../../shared_data/annotations/Ensembl/Homo_sapiens.GRCh38.101.gtf.gz', 'Ensembl')
+# args <- c('../../shared_data/annotations/Ensembl/Homo_sapiens.GRCh38.101.gtf.gz', 'Ensembl', '<output.directory>')
 
 ### Load exon annotation ####
 exons <- import(con = args[1], feature = 'exon') %>% sort
@@ -113,7 +113,7 @@ fname <- paste0(tail(strsplit(args[1], '/')[[1]], 1), '_', Sys.Date(), '_constEx
 
 export(
     object = out[ , -2], # omit gene name
-    con = paste(fpath, fname, sep = '/')
+    con = file.path(args[3], fname)
 )
 
 w <- warnings()
